@@ -1,5 +1,4 @@
 const express = require('express');
-const knex = require('knex');
 const db = require('../data/db-config');
 const router = express.Router();
 
@@ -14,9 +13,10 @@ router.get('/', async (req,res) => {
 })
 
 router.get('/:id', async(req,res) => {
-    try {
+        try {
         const {id} = req.params;
-        const cars = await db('cars').where({id});
+        const cars = await db('cars')
+        .where({id});
         res.json(cars);
     }
     catch (error) {
