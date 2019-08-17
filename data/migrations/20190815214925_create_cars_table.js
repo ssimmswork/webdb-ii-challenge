@@ -8,11 +8,13 @@ exports.up = function(knex) {
       tbl.decimal('mileage');
       tbl.decimal('vin');
       tbl.boolean('automatic');
-      tbl.string('title-status');
+      tbl.string('titleStatus');
     })
   };
   
   exports.down = function(knex) {
     return knex.schema.dropTableIfExists('cars')
   };
+  
+
   
